@@ -19,7 +19,7 @@ const PlaceItem = ({ onSelect, place }: Props) => {
             }
         >
             <View
-                style={tw`flex-1 items-center justify-center rounded-b-md overflow-hidden rounded-tl-md`}
+                style={tw`flex-1 items-center justify-center rounded-l-md overflow-hidden`}
             >
                 <Image
                     source={{ uri: place.imageURI }}

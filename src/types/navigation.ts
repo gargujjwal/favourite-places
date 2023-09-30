@@ -10,7 +10,7 @@ export type RootStackParamList = {
     AllPlaces: undefined;
     AddPlace: Location | undefined;
     PlaceDetail: Pick<Place, "id">;
-    Map: undefined;
+    Map: { location: Location } | undefined;
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

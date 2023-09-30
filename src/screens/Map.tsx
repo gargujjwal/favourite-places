@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Alert, View } from "react-native";
 import MapView, { MapViewProps, Marker } from "react-native-maps";
 
@@ -7,17 +7,17 @@ import tw from "../lib/tailwind";
 import { Location } from "../types";
 import { RootStackScreenProps } from "../types/navigation";
 
-const region = {
-    latitude: 20.5937,
-    longitude: 78.9629,
-    latitudeDelta: 3,
-    longitudeDelta: 3,
-};
-
-const Map = ({ navigation }: RootStackScreenProps<"Map">) => {
+const Map = ({ navigation, route }: RootStackScreenProps<"Map">) => {
     const [selectedRegion, setSelectedRegion] = useState<
         Location | undefined
     >();
+
+    const region = {
+        latitude: route.params?.location.lat ?? 20.5937,
+        longitude: route.params?.location.lng ?? 78.9629,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+    };
 
     const handleSubmitSavedLocation = useCallback(() => {
         if (!selectedRegion)
@@ -30,18 +30,20 @@ const Map = ({ navigation }: RootStackScreenProps<"Map">) => {
         navigation.navigate("AddPlace", selectedRegion);
     }, [selectedRegion, navigation]);
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerRight: ({ tintColor }) => (
-                <IconButton
-                    iconName="save"
-                    size={24}
-                    color={tintColor}
-                    onPress={handleSubmitSavedLocation}
-                />
-            ),
-        });
-    }, [handleSubmitSavedLocation, navigation]);
+    useEffect(() => {
+        if (route.params) setSelectedRegion(route.params.location);
+        else
+            navigation.setOptions({
+                headerRight: ({ tintColor }) => (
+                    <IconButton
+                        iconName="save"
+                        size={24}
+                        color={tintColor}
+                        onPress={handleSubmitSavedLocation}
+                    />
+                ),
+            });
+    }, [handleSubmitSavedLocation, navigation, route.params]);
 
     const handleSelectLocation: MapViewProps["onPress"] = ev => {
         const { coordinate } = ev.nativeEvent;
@@ -56,7 +58,7 @@ const Map = ({ navigation }: RootStackScreenProps<"Map">) => {
             <MapView
                 initialRegion={region}
                 style={tw`h-full w-full`}
-                onPress={handleSelectLocation}
+                onPress={route.params ? undefined : handleSelectLocation}
             >
                 {selectedRegion ? (
                     <Marker

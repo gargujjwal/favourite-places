@@ -31,9 +31,23 @@ export const fetchPlacesAction = async (dispatch: Dispatch<Action>) => {
         const {
             rows: { _array: places },
         } = await fetchPlaces();
+        const placesWithLocation = places.map(
+            (place: {
+                id: number;
+                title: string;
+                imageURI: string;
+                address: string;
+                lat: number;
+                lng: number;
+            }) => ({
+                ...place,
+                location: { lat: place.lat, lng: place.lng },
+            })
+        );
+
         dispatch({
             action: "SET_PLACES",
-            payload: { places: places as Place[] },
+            payload: { places: placesWithLocation },
         });
     } catch (err) {
         dispatch({
