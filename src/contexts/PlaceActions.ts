@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 import { Place } from "../types";
-import { uniqueId } from "../utils";
+import { fetchPlaces, insertPlace } from "../utils/db";
 import { Action } from "./PlaceReducer";
 
 export const addPlaceAction = async (
@@ -9,10 +9,31 @@ export const addPlaceAction = async (
 ) => {
     dispatch({ action: "STARTING_LOADING" });
     try {
-        const placeId = uniqueId();
+        const { insertId } = await insertPlace(place);
+        if (!insertId) throw new Error("Could not insert place");
         dispatch({
             action: "ADD_PLACE",
-            payload: { place: { ...place, id: placeId } },
+            payload: { place: { ...place, id: insertId } },
+        });
+    } catch (err) {
+        dispatch({
+            action: "ERROR",
+            payload: { error: (err as Error).message },
+        });
+    } finally {
+        dispatch({ action: "FINISHED_LOADING" });
+    }
+};
+
+export const fetchPlacesAction = async (dispatch: Dispatch<Action>) => {
+    dispatch({ action: "STARTING_LOADING" });
+    try {
+        const {
+            rows: { _array: places },
+        } = await fetchPlaces();
+        dispatch({
+            action: "SET_PLACES",
+            payload: { places: places as Place[] },
         });
     } catch (err) {
         dispatch({

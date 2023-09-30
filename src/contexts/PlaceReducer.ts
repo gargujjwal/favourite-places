@@ -13,6 +13,7 @@ export type Action =
               place: Place;
           };
       }
+    | { action: "SET_PLACES"; payload: { places: Place[] } }
     | { action: "STARTING_LOADING" | "FINISHED_LOADING" | "CLEAR_ERROR" }
     | { action: "ERROR"; payload: { error: string } };
 
@@ -22,6 +23,11 @@ const placeReducer = (state: PlaceReducer, action: Action): PlaceReducer => {
             return {
                 ...state,
                 places: [...state.places, action.payload.place],
+            };
+        case "SET_PLACES":
+            return {
+                ...state,
+                places: action.payload.places,
             };
         case "STARTING_LOADING":
             return {

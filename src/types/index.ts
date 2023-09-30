@@ -1,5 +1,5 @@
 export type Place = {
-    id: string;
+    id: number;
     title: string;
     imageURI: string;
     address: string;

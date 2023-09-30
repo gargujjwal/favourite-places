@@ -3,8 +3,10 @@ import {
     ReactNode,
     createContext,
     useContext,
+    useEffect,
     useReducer,
 } from "react";
+import { fetchPlacesAction } from "./PlaceActions";
 import type { Action, PlaceReducer } from "./PlaceReducer";
 import placeReducer from "./PlaceReducer";
 
@@ -20,6 +22,10 @@ const PlaceProvider = ({ children }: { children: ReactNode }) => {
         loading: false,
         error: undefined,
     });
+
+    useEffect(() => {
+        fetchPlacesAction(dispatch);
+    }, []);
 
     const contextVal = { ...placeContext, dispatch };
 

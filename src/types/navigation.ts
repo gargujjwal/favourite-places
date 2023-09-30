@@ -4,12 +4,12 @@ import {
 } from "@react-navigation/native-stack";
 
 import { RouteProp } from "@react-navigation/native";
-import { Location } from ".";
+import { Location, Place } from ".";
 
 export type RootStackParamList = {
     AllPlaces: undefined;
     AddPlace: Location | undefined;
-    PlaceDetail: { id: string };
+    PlaceDetail: Pick<Place, "id">;
     Map: undefined;
 };
 

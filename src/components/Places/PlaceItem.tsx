@@ -13,7 +13,7 @@ const PlaceItem = ({ onSelect, place }: Props) => {
             onPress={onSelect}
             style={({ pressed }) =>
                 tw.style(
-                    "flex-row items-start rounded-md my-3 bg-primary-500 shadow-md",
+                    "flex-1 flex-row items-start rounded-md my-3 bg-primary-500 shadow-md",
                     pressed && "opacity-75"
                 )
             }

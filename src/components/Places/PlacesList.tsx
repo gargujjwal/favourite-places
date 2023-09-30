@@ -34,12 +34,14 @@ const PlacesList = ({ places }: Props) => {
     if (places.length === 0) return <PlacesListFallback />;
 
     return (
-        <FlatList
-            data={places}
-            keyExtractor={item => item.id}
-            renderItem={handleRenderPlace}
-            style={tw`m-6`}
-        />
+        <View style={tw`flex-1`}>
+            <FlatList
+                data={places}
+                keyExtractor={item => item.id.toString()}
+                renderItem={handleRenderPlace}
+                style={tw`m-6`}
+            />
+        </View>
     );
 };
 
