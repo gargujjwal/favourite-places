@@ -2,24 +2,24 @@
 
 <!-- Project Shields -->
 <p align="center">
-  <a href="https://github.com/ujjwalgarg100204/favourite-places/network/members"
+  <a href="https://github.com/gargujjwal/favourite-places/network/members"
   >
     <img
-      src="https://img.shields.io/github/forks/ujjwalgarg100204/favourite-places.svg?style=for-the-badge"
+      src="https://img.shields.io/github/forks/gargujjwal/favourite-places.svg?style=for-the-badge"
       alt="fork-shield"
     />
   </a>
   <a
-    href="https://github.com/ujjwalgarg100204/favourite-places/blob/master/LICENSE.txt"
+    href="https://github.com/gargujjwal/favourite-places/blob/master/LICENSE.txt"
   >
     <img
-      src="https://img.shields.io/github/license/ujjwalgarg100204/favourite-places.svg?style=for-the-badge"
+      src="https://img.shields.io/github/license/gargujjwal/favourite-places.svg?style=for-the-badge"
       alt="license-shield"
     />
   </a>
-  <a href=" https://github.com/ujjwalgarg100204/favourite-places/stargazers">
+  <a href=" https://github.com/gargujjwal/favourite-places/stargazers">
     <img
-      src="https://img.shields.io/github/stars/ujjwalgarg100204/favourite-places.svg?style=for-the-badge"
+      src="https://img.shields.io/github/stars/gargujjwal/favourite-places.svg?style=for-the-badge"
       alt="star-shield"
     />
   </a>
@@ -50,13 +50,13 @@
     📍📸 Explore and remember your favorite places with ease using our React Native app. With the power of Google Maps API and Map View integration, you can effortlessly mark your cherished locations on the map, complete with photos and pins. Plus, your data is securely stored in your mobile device's SQLite database, thanks to Expo's seamless integration
     <br />
     <a
-      href="https://github.com/ujjwalgarg100204/favourite-places/issues"
+      href="https://github.com/gargujjwal/favourite-places/issues"
       aria-label="Link to issues of github repo"
       >Report Bug</a
     >
     ·
     <a
-      href="https://github.com/ujjwalgarg100204/favourite-places/issues"
+      href="https://github.com/gargujjwal/favourite-places/issues"
       aria-label="Link to issues of github repo"
       >Request Feature</a
     >
@@ -183,15 +183,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Links
 
--   Repo URL: [https://github.com/ujjwalgarg100204/favourite-places](https://github.com/ujjwalgarg100204/favourite-places)
+-   Repo URL: [https://github.com/gargujjwal/favourite-places](https://github.com/gargujjwal/favourite-places)
 
 <!-- AUTHOR -->
 
 ## Author
 
--   Website - [Ujjwal Garg](https://github.com/ujjwalgarg100204)
--   Instagram - [@ujjwalgarg100204](https://www.instagram.com/ujjwalgarg100204/)
--   Linkedin - [@ujjwalgarg100204](https://www.linkedin.com/in/ujjwal-garg-3a5639243/)
+-   Website - [Ujjwal Garg](https://github.com/gargujjwal)
+-   Instagram - [@gargujjwal](https://www.instagram.com/gargujjwal/)
+-   Linkedin - [@gargujjwal](https://www.linkedin.com/in/ujjwal-garg-3a5639243/)
 -   Twitter -[@UjwalGarg100204](https://twitter.com/UjwalGarg100204)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
